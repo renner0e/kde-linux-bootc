@@ -6,7 +6,7 @@ RUN sed -i 's/^[[:space:]]*DownloadUser[[:space:]]*=.*/#&/' /etc/pacman.conf
 
 RUN curl -s "https://archlinux.org/mirrorlist/?country=all&protocol=https" \
   | sed 's/^#Server/Server/' \
-  | tee /etc/pacman.d/mirrorlist > /dev/null
+  | tee /etc/pacman.d/mirrorlist
 
 RUN pacman-key --init && pacman-key --populate
 RUN pacman -Syu --noconfirm
